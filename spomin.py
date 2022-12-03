@@ -14,7 +14,6 @@ stIzbranih = 0
 stIger=0
 rekord = 0
 
-
 pravilnoUganjeni = 0
 narobeUganjeni = 0
 
@@ -134,7 +133,7 @@ def spomin(x, y):
     naslov.write("IGRA SPOMIN", align="center", font=("Verdana", 30, "bold"))
     loading.write("mešanje...", align="center", font=('Helvetica', 12))
     
-    #ustvarjanje in zapisovanje klonov
+#ustvarjanje in zapisovanje klonov
     for i in range(0,4):
         kartaOriginal.goto(-187.5, -187.5+i*125)
         for j in range(0,4):
@@ -168,7 +167,7 @@ def spomin(x, y):
     for i in range (0,16):
         karte[i]["clone"].onclick(identifyCard)
 
-#nastavljanje onclick lastnosti
+#funkcije
 def kartaIzbrana(st):
     global stIzbranih
     global izbranaKarta1
@@ -256,7 +255,5 @@ igrajZnova.onclick(spomin)
 
 spomin(0, 0)
         
-
-
 done()
 
