@@ -2,7 +2,8 @@ from turtle import *
 import time
 import random
 
-barve = ["tomato", "peru", "olive", "yellow", "seagreen", "maroon", "navy", "skyblue"]
+barve = ["tomato", "peru", "olive", "yellow",
+         "seagreen","maroon", "navy", "skyblue"]
 barveVSpominu = {}
 imaBarvo = False
 karte = {}
@@ -38,7 +39,6 @@ loading.speed(0)
 loading.pu()
 loading.ht()
 loading.goto(0, 240)
-
 
 napisLevo = Turtle()
 napisLevo.speed(0)
@@ -85,14 +85,11 @@ rekordNapis.speed(0)
 rekordNapis.goto(-445,200)
 rekordNapis.write("Rekord: nedefiniran", font=("Arial", 14, "bold"))
 
-
 novRekordNapis = Turtle()
 novRekordNapis.hideturtle()
 novRekordNapis.penup()
 novRekordNapis.speed(0)
 novRekordNapis.goto(0,-175)
-
-
 
 #inicializacija originalne karte
 kartaOriginal = Turtle()
@@ -102,7 +99,6 @@ kartaOriginal.goto(-187.5, -187.5)
 kartaOriginal.shapesize(5)
 kartaOriginal.shape("circle")
 kartaOriginal.hideturtle()
-
 
 def spomin(x, y):
     global stIzbranih 
@@ -133,21 +129,18 @@ def spomin(x, y):
     naslov.write("IGRA SPOMIN", align="center", font=("Verdana", 30, "bold"))
     loading.write("mešanje...", align="center", font=('Helvetica', 12))
     
-#ustvarjanje in zapisovanje klonov
+    #ustvarjanje in zapisovanje klonov
     for i in range(0,4):
         kartaOriginal.goto(-187.5, -187.5+i*125)
         for j in range(0,4):
             karte[j + (4*i)] = {"clone": kartaOriginal.clone(), "barva":None, "odkrita": False}
             karte[j + (4*i)]["clone"].showturtle()
             kartaOriginal.forward(125)
-
-
     
 #nastavljanje barv
     for i in range(0,8):
         barveVSpominu[i]={"barva": barve[i], "st": 0}
          
-
 #vsaka karta dobi eno barvo, po dve imata isto
     for i in range(0, 16):
         imaBarvo = False
@@ -160,14 +153,14 @@ def spomin(x, y):
         karte[i]["clone"].fillcolor(str(karte[i]["barva"]))
     loading.clear()
 
-    time.sleep(2)
+    time.sleep(3)
 
     for i in range(0, 16):
         karte[15-i]["clone"].fillcolor("black")
     for i in range (0,16):
         karte[i]["clone"].onclick(identifyCard)
 
-#funkcije
+#nastavljanje onclick lastnosti
 def kartaIzbrana(st):
     global stIzbranih
     global izbranaKarta1
@@ -218,9 +211,7 @@ def kartaIzbrana(st):
             napisIgrajZnova.write("Igraj znova:", align="center", font=('Arial', 17, 'bold'))
             rekordNapis.clear()
             if narobeUganjeni<rekord and stIger>0:
-                novRekordNapis.write("Postavil si nov rekord!", align="center", font=("Arial", 20, "bold"))
-            
-            
+                novRekordNapis.write("Postavil si nov rekord!", align="center", font=("Arial", 20, "bold"))    
                 
 def identifyCard(x, y):
     global stIzbranih
